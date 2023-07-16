@@ -44,8 +44,8 @@ TagManager:
   - name: Background-mapa
     uniqueID: 333895001
     locked: 0
-  - name: Character
-    uniqueID: 3958451995
+  - name: Background-items
+    uniqueID: 378584059
     locked: 0
   - name: Foreground
     uniqueID: 1912490781
@@ -53,6 +53,6 @@ TagManager:
   - name: items
     uniqueID: 2279076231
     locked: 0
-  - name: Background-items
-    uniqueID: 378584059
+  - name: Character
+    uniqueID: 3958451995
     locked: 0
