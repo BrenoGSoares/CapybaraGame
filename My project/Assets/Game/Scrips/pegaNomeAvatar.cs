@@ -9,31 +9,33 @@ public class pegaNomeAvatar : MonoBehaviour
     public Button jogar;
     public Button dino;
     public Button capi;
-    public Text nome;
-
+    public string player;
+    public string playerName;
     // Start is called before the first frame update
     void Start()
     {
-     jogar.interactable = false;   
+        jogar.interactable = false;
     }
 
-    public void selecioneAvatar(int i){
+    public void selecioneAvatar(string i)
+    {
+        // print(i);
+        player = i;
+        // print(player)
+        // playerName = ;
         // aqui eu tenho que salvar qual avatar foi clicado
-        
-    // public void selecionePlayer(string nome){
-    //     if(nome == "capi"){
-    //         player = "capi";
-    //     }else{
-    //         if(nome == "dino"){
-    //             player ="dino";
-    //         }
-    //     }
-    // }
+    }
 
-    // public void jogar(){
-    //     // Application.LoadLevel();
-    //     print(player);
-    //     print("vou mudar de cena");
-    // }
+
+    public void selecionaName(string name)
+    {
+        playerName = name;
+        print(playerName);
+        jogar.interactable = true;
+
+        //     // Application.LoadLevel();
+        //     print(player);
+        //     print("vou mudar de cena");
+        // }
     }
 }
