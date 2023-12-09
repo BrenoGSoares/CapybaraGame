@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
+using TMPro;
 
 public class movement : MonoBehaviour{
     
@@ -17,17 +20,23 @@ public class movement : MonoBehaviour{
     private bool pulando;
     private bool estaNoChao;
 
+    public PhotonView photonView;
+
     // Start is called before the first frame update
     void Start()
     {
+        
+        GameObject.Find("nomeper").GetComponent<TextMeshProUGUI>().text = GameObject.Find("coletadados").GetComponent<dadosPersonagem>().nomejogador;
         rigbody2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movepersonagem();
-        Pular();
+        if (photonView.IsMine){
+            Movepersonagem();
+            Pular();
+        }  
     }
 
 
