@@ -40,7 +40,7 @@ public class GestorDeRede : MonoBehaviourPunCallbacks
         if(returnCode == ErrorCode.GameDoesNotExist){
             Debug.Log("Criando sala.");
             RoomOptions roomOptions = new RoomOptions{ MaxPlayers = 20 };
-            PhotonNetwork.CreateRoom("capybara", roomOptions, null);
+            PhotonNetwork.CreateRoom("GameTeste", roomOptions, null);
         }
     }
 
