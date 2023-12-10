@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Photon.Pun;
 
-public class pegaNomeAvatar : MonoBehaviour
+public class pegaNomeAvatar : MonoBehaviourPunCallbacks
 {
     public Button jogar;
     public Button dino;

@@ -5,7 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 
-public class movementDino : MonoBehaviour{
+public class movementDino : MonoBehaviourPunCallbacks{
     
     public float velocidadeMovimento;
     public float forcaPulo;
@@ -20,12 +20,15 @@ public class movementDino : MonoBehaviour{
     private bool pulando;
     private bool estaNoChao;
 
+    public string nicknameplayer;
+
     public PhotonView photonView;
+    public TextMeshProUGUI nomeperso;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("nomeper").GetComponent<TextMeshProUGUI>().text = GameObject.Find("coletadados").GetComponent<dadosPersonagem>().nomejogador;
+        //GameObject.Find("nomeper").GetComponent<TextMeshProUGUI>().text = GameObject.Find("coletadados").GetComponent<dadosPersonagem>().nomejogador;
         rigbody2d = GetComponent<Rigidbody2D>();
 
     }
@@ -39,6 +42,14 @@ public class movementDino : MonoBehaviour{
         }  
     }
 
+    [PunRPC]
+    public void SetNickname(string _name){
+        
+            nicknameplayer = _name;
+            //GameObject.Find("nomeper").GetComponent<TextMeshProUGUI>().text = nicknameplayer;
+            nomeperso.text = nicknameplayer;
+      
+    }
 
     public bool EstaNoChao{
         get {

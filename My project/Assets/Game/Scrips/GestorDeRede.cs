@@ -9,13 +9,13 @@ public class GestorDeRede : MonoBehaviourPunCallbacks
 {
     public dadosPersonagem dados = null; 
     public TextMeshProUGUI compTexto;
-    void Start(){
-        dados = GameObject.Find("coletadados").GetComponent<dadosPersonagem>();
-    }
+    public GameObject playerdavez;
+    
     private void Awake()
     {
         Debug.Log("Conectando ao servidor.");
-        PhotonNetwork.LocalPlayer.NickName = "Teste" + Random.Range(0,1000);
+        dados = GameObject.Find("coletadados").GetComponent<dadosPersonagem>();
+        PhotonNetwork.NickName = dados.nomejogador;
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -54,15 +54,20 @@ public class GestorDeRede : MonoBehaviourPunCallbacks
         Debug.Log("Personagem: "+ dados.personagem);
         if (dados.personagem == "capi"){
             Debug.Log("Personagem: capicapi");
-            PhotonNetwork.Instantiate("capybara", pos, Quaternion.Euler(Vector2.up));
+            GameObject _player = PhotonNetwork.Instantiate("capybara", pos, Quaternion.Euler(Vector2.up));
+            _player.GetComponent<PhotonView>().RPC("SetNickname", RpcTarget.All, PhotonNetwork.LocalPlayer.NickName);
+            playerdavez = _player;
         }else{
             Debug.Log("Personagem: dinossauroteste");
-            PhotonNetwork.Instantiate("velociraptor", pos, Quaternion.Euler(Vector2.up));
+            GameObject _player = PhotonNetwork.Instantiate("velociraptor", pos, Quaternion.Euler(Vector2.up));
+            _player.GetComponent<PhotonView>().RPC("SetNickname", RpcTarget.All, PhotonNetwork.LocalPlayer.NickName);
+            playerdavez = _player;
         }
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer){
         Debug.Log("Um jogador entrou na sala GameTeste. User: " + newPlayer.NickName);
+        playerdavez.GetComponent<PhotonView>().RPC("SetNickname", RpcTarget.All, PhotonNetwork.LocalPlayer.NickName);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer){

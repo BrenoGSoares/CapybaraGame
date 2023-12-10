@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class animationPlayerDino : MonoBehaviour
+public class animationPlayerDino : MonoBehaviourPunCallbacks
 {
 
     [SerializeField]

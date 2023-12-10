@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class dadosPersonagem : MonoBehaviour
+public class dadosPersonagem : MonoBehaviourPunCallbacks
 {
     public string personagem;
     public string nomejogador;
