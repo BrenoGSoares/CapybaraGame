@@ -15,6 +15,8 @@ public class animationPlayer : MonoBehaviour
 
     [SerializeField]
     private movement jogador;
+    public PhotonView photonView;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class animationPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
+    [PunRPC]
     void Update()
     {
         if (this.jogador.EstaNoChao){

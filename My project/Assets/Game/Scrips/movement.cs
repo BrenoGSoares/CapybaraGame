@@ -25,7 +25,6 @@ public class movement : MonoBehaviour{
     // Start is called before the first frame update
     void Start()
     {
-        
         GameObject.Find("nomeper").GetComponent<TextMeshProUGUI>().text = GameObject.Find("coletadados").GetComponent<dadosPersonagem>().nomejogador;
         rigbody2d = GetComponent<Rigidbody2D>();
     }
@@ -46,7 +45,7 @@ public class movement : MonoBehaviour{
         }
     }
 
-
+    [PunRPC]
     void Movepersonagem(){
 
         float horizontal = Input.GetAxis("Horizontal");

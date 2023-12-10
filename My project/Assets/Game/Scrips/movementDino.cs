@@ -27,6 +27,7 @@ public class movementDino : MonoBehaviour{
     {
         GameObject.Find("nomeper").GetComponent<TextMeshProUGUI>().text = GameObject.Find("coletadados").GetComponent<dadosPersonagem>().nomejogador;
         rigbody2d = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -45,7 +46,7 @@ public class movementDino : MonoBehaviour{
         }
     }
 
-
+    [PunRPC]
     void Movepersonagem(){
 
         float horizontal = Input.GetAxis("Horizontal");
