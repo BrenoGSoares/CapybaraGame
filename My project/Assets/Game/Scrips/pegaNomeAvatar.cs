@@ -2,34 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Photon.Pun;
 
-public class pegaNomeAvatar : MonoBehaviour
+public class pegaNomeAvatar : MonoBehaviourPunCallbacks
 {
     public Button jogar;
     public Button dino;
     public Button capi;
-    public string player;
-    public string playerName;
+    public TextMeshProUGUI comptexto;
+    public dadosPersonagem jogadorObject;
     // Start is called before the first frame update
     void Start()
     {
         jogar.interactable = false;
     }
 
-    public void selecioneAvatar(string i)
+    public void selecioneAvatar(string player)
     {
-        // print(i);
-        player = i;
-        // print(player)
-        // playerName = ;
-        // aqui eu tenho que salvar qual avatar foi clicado
+        Debug.Log("Selecionou: " + player);
+        jogadorObject.personagem = player;
     }
-
 
     public void selecionaName(string name)
     {
-        playerName = name;
-        print(playerName);
+        Debug.Log("NOME: " + name);
+        jogadorObject.nomejogador = comptexto.text;
+
         jogar.interactable = true;
 
         //     // Application.LoadLevel();
