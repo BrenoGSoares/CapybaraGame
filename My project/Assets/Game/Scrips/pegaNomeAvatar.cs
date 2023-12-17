@@ -12,6 +12,7 @@ public class pegaNomeAvatar : MonoBehaviourPunCallbacks
     public Button capi;
     public TextMeshProUGUI comptexto;
     public dadosPersonagem jogadorObject;
+    public GameObject dinoUI, capiUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,14 @@ public class pegaNomeAvatar : MonoBehaviourPunCallbacks
 
     public void selecioneAvatar(string player)
     {
+       
+        if(player == "dino"){
+            capiUI.SetActive(false);
+            dinoUI.SetActive(true);
+        }else{
+            capiUI.SetActive(true);
+            dinoUI.SetActive(false);
+        }
         Debug.Log("Selecionou: " + player);
         jogadorObject.personagem = player;
     }
