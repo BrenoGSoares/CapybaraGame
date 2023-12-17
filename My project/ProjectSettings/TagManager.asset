@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - CA1
+  - CA2
+  - CA3
+  - CA4
+  - DI1
+  - DI2
+  - DI3
+  - DI4
+  - FIM
   layers:
   - Default
   - TransparentFX
